@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>使用JS將JSON資料迴圈渲染至樣板</title>
-<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>使用JS將JSON資料迴圈渲染至樣板</title>
+    <style>.red{color:red}.blue{color:blue}</style>
 </head>
+
 <body>
 
-<style>.red{color:red}.blue{color:blue}</style>
-
 <h3>遍歷json數據並生成html表</h3>
-<br>
-https://github.com/arters/Convert-json-data-to-a-html-template/
+<a href="https://github.com/arters/Convert-json-data-to-a-html-template/" target="_blank">https://github.com/arters/Convert-json-data-to-a-html-template/</a>
 <hr>
 Template:
 <br>
@@ -91,3 +89,6 @@ loopDataTemplateRender(data, 'template_1', '{^', '^}');
 document.getElementById('dataset').innerHTML = JSON.stringify(data, null, 4);
 
 </script>
+
+</body>
+</html>
