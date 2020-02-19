@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>使用JS將JSON資料迴圈渲染至樣板</title>
+<head>
+</head>
+<body>
+
+<style>.red{color:red}.blue{color:blue}</style>
+
+<h3>遍歷json數據並生成html表</h3>
+<br>
+https://github.com/arters/Convert-json-data-to-a-html-template/
+<hr>
+Template:
+<br>
+<ul>
+<li>樣板的區域標籤加上 <span class="red">render-area</span> 的 data 屬性</li>
+<li>在需要控制迴圈的區域標籤加上 <span class="red">render-action="loop"</span> 的 data 屬性</li>
+<li>樣板內變數外層加上 <span class="red">{!變數!}}</span> </li>
+<li>資料就會自動渲染</li>
+</ul>
+
+<pre id="template">
+&lt;table <span class="red">render-area="template_1"</span>>
+    &lt;thead>
+        &lt;tr>
+            &lt;th class="">統一編號&lt;/th>
+            &lt;th class="text-center">機關單位名稱&lt;/th>
+            &lt;th class="text-center">經緯度&lt;/th>
+        &lt;/tr>
+    &lt;/thead>
+    &lt;tbody <span class="red">render-action="loop"</span>><span class="blue">&lt;!-- 迴圈部分 --></span>
+        &lt;tr>
+            &lt;td>{!統一編號!}&lt;/td>
+            &lt;td>{!機關單位名稱!}&lt;/td>
+            &lt;td>{!經緯度!}&lt;/td>
+        &lt;/tr>
+    &lt;/tbody>
+&lt;/table>
+</pre>
+<br>
+<hr>
+Data:<br>
+
+<pre id="dataset">
+</pre>
+
+<hr>
+
+JS usage:
+<pre>
+loopDataTemplateRender(data, 'template_1');
+</pre>
+
+<br>
+<hr>
+Demo:<br>
+
+<!-- 樣板範例1 -->
+<table render-area="template_1">
+    <thead>
+        <tr>
+            <th class="">統一編號</th>
+            <th class="text-center">機關單位名稱</th>
+            <th class="text-center">經緯度</th>
+        </tr>
+    </thead>
+    <tbody render-action="loop"><!-- 迴圈部分 -->
+        <tr>
+            <td>{!統一編號!}</td>
+            <td>{!機關單位名稱!}</td>
+            <td>{!經緯度!}</td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/loopDataTemplateRender.js"></script>
+<script>
+
+//模擬 json 資料1
+var data = [
+    {"統一編號": "03732303", "機關單位名稱": "財政部", "經緯度": "120.1,22.1"},
+    {"統一編號": "04192705", "機關單位名稱": "財政部國庫署", "經緯度": "120.2,22.2"},
+    {"統一編號": "17881751", "機關單位名稱": "國家教育研究院", "經緯度": "120.3,22.3"},
+];
+loopDataTemplateRender(data, 'template_1', '{^', '^}');
+
+document.getElementById('dataset').innerHTML = JSON.stringify(data, null, 4);
+
+</script>
