@@ -1,13 +1,16 @@
 # Convert-json-data-to-a-html-template
-Iterate through the json data use JavaScript(JS) and auto-generated the html loop rows by simple html template
+Iterate through the json data use JavaScript(JS) and auto-generated the JavaScript loop rows by your custom html template, just add simple data attribute. 
 
-說明：
-樣板的區域標籤加上 render-area 的 data 屬性
-在需要控制迴圈的區域標籤加上 render-action="loop" 的 data 屬性
-樣板內變數外層加上 {!變數!}}
-資料就會自動渲染
+### Features
 
-Template:
++ HTML 直接加上宣告標籤，而不用使用傳統複雜的 JS 字串組裝方式，
++ 樣板的區域標籤加上 render-area 的 data 屬性
++ 在需要控制迴圈的區域標籤加上 render-action="loop" 的 data 屬性
++ 樣板內變數外層加上 {!變數!}} 資料就會自動渲染
+
+####HTML Template Code
+
+```html
 <table render-area="template_1">
     <thead>
         <tr>
@@ -24,3 +27,8 @@ Template:
         </tr>
     </tbody>
 </table>
+```
+
+#### Online Demo:
+https://jsfiddle.net/6r2f5Lut/
+
