@@ -1,4 +1,4 @@
-# Convert-json-data-to-a-html-template
+# Convert-json-data-to-a-html-template (Pure JS)
 Iterate through the json data use JavaScript(JS) and auto-generated the JavaScript loop rows by your custom html template, just add simple data attribute. 
 
 ### Features
