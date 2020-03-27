@@ -8,11 +8,12 @@ You have a html table, you want to auto-generated the JavaScript loop rows by  c
 + 樣板的區域標籤加上 render-area 的 data 屬性
 + 在需要控制迴圈的區域標籤加上 render-action="loop" 的 data 屬性
 + 樣板內變數外層加上 {!變數!}} 資料就會自動渲染
++ 可自訂無資料時顯示樣式(render-data="data", render-data="nodata")
 
 
 #### HTML Template Code
 ```html
-<table render-area="template_1">
+<table render-area="template_2">
     <thead>
         <tr>
             <th class="">統一編號</th>
@@ -21,10 +22,15 @@ You have a html table, you want to auto-generated the JavaScript loop rows by  c
         </tr>
     </thead>
     <tbody render-action="loop"><!-- 迴圈部分 -->
-        <tr>
+        <!-- 呈現資料-->
+        <tr render-data="data">
             <td>{!統一編號!}</td>
             <td>{!機關單位名稱!}</td>
             <td>{!經緯度!}</td>
+        </tr>
+        <!-- 無資料-->
+        <tr render-data="nodata">
+            <td colspan="4">沒有資料</td>
         </tr>
     </tbody>
 </table>
@@ -78,5 +84,5 @@ And you can get it.
 
 
 #### Online Demo:
+https://jsfiddle.net/xvy29q5p/
 https://jsfiddle.net/6r2f5Lut/
-
