@@ -13,6 +13,24 @@ You have a html table, you want to auto-generated the JavaScript loop rows by  c
 
 #### HTML Template Code
 ```html
+
+<table render-area="template_1">
+    <thead>
+        <tr>
+            <th class="">統一編號</th>
+            <th class="text-center">機關單位名稱</th>
+            <th class="text-center">經緯度</th>
+        </tr>
+    </thead>
+    <tbody render-action="loop"><!-- 迴圈部分 -->
+        <tr>
+            <td>{!統一編號!}</td>
+            <td>{!機關單位名稱!}</td>
+            <td>{!經緯度!}</td>
+        </tr>
+    </tbody>
+</table>
+
 <table render-area="template_2">
     <thead>
         <tr>
@@ -44,11 +62,14 @@ var data = [
     {"統一編號": "04192705", "機關單位名稱": "財政部國庫署", "經緯度": "120.2,22.2"},
     {"統一編號": "17881751", "機關單位名稱": "國家教育研究院", "經緯度": "120.3,22.3"},
 ];
+
+var data2 = []; //empty
 ```
 Just use:
 #### JavaScript 
 ```
 loopDataTemplateRender(data, 'template_1');
+loopDataTemplateRender(data, 'template_2');
 ```
 
 And you can get it.
@@ -84,5 +105,5 @@ And you can get it.
 
 
 #### Online Demo:
-https://jsfiddle.net/xvy29q5p/
+https://jsfiddle.net/xvy29q5p/  
 https://jsfiddle.net/6r2f5Lut/
