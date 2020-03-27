@@ -1,7 +1,7 @@
 
 /**
- * 將資料動態布置至樣板 v2.0
- * 2020.02.19 Jwu
+ * 將資料動態布置至樣板 v2.1
+ * 2020.03.27 Jwu
  *
  * @param {string} data 數據
  * @param {string} tableTemplate 主樣板
@@ -11,12 +11,17 @@ function loopDataTemplateRender(data, renderTemplate) {
 
     var template = document.querySelector('[render-area="' + renderTemplate + '"]');
     var loopElm = template.querySelector('[render-action="loop"]');
+    _loopArea = loopElm;
     if( (template || null != template) && loopElm){
+      if(Object.keys(data).length){
+        var nodataElm = loopElm.querySelector('[render-data="nodata"]');
+        if(nodataElm){
+          nodataElm.style.display = 'none';
+        }
         var keyRpStr;
         var WordRegEx;
         var loopAreaHtml = loopElm.innerHTML;
         loopElm.innerHTML = 'Loading...';
-
         var replaceRow = '';
         var loopStr = '';
         data.forEach(function(ditem) {
@@ -30,5 +35,13 @@ function loopDataTemplateRender(data, renderTemplate) {
             loopStr += replaceRow;
         });
         loopElm.innerHTML = loopStr;
+      }else{
+        var dataElm = loopElm.querySelector('[render-data="data"]');
+        if(dataElm){
+          dataElm.style.display = 'none';
+        }else{
+          loopElm.childNodes[0].style.display = 'none';
+        }
+      }
     }
 }
