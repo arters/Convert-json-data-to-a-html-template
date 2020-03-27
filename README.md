@@ -30,7 +30,11 @@ You have a html table, you want to auto-generated the JavaScript loop rows by  c
         </tr>
     </tbody>
 </table>
+```
 
+Or
+
+```html
 <table render-area="template_2">
     <thead>
         <tr>
@@ -69,7 +73,7 @@ Just use:
 #### JavaScript 
 ```
 loopDataTemplateRender(data, 'template_1');
-loopDataTemplateRender(data, 'template_2');
+loopDataTemplateRender(data2, 'template_2');
 ```
 
 And you can get it.
